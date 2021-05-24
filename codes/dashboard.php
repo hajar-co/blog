@@ -15,7 +15,7 @@
 
 <?php 
 $getAritcles = new article();
-$get= $getAritcles->getArticle()?>
+$Articles= $getAritcles->getArticle()?>
 
 </form>
 
@@ -30,20 +30,21 @@ $get= $getAritcles->getArticle()?>
       Actions</th> 
     </tr>
   </thead>
-  <?php foreach ($get as $ge) { ?>
+  <?php foreach ($Articles as $Article) { ?>
   <tbody>
   <tr>
-  <td> <?=$ge['ID']; ?></td>
-  <td><?=$ge['title']; ?></td>
-  <td><?=$ge['image']; ?></td>
-  <td><?=$ge['datePub']; ?></td>
+  <td> <?=$Article['ID']; ?></td>
+  <td><?=$Article['title']; ?></td>
+  <!-- <td><img src="<?=$Article['image'];?>"></td> -->
+  <td><?=$Article['image'];?></td>
+  <td><?=$Article['datePub']; ?></td>
   <td>
   
-  <form action="dashboard.php" method="POST">
+  <!-- <form action="dashboard.php" method="POST">    always in button don't use form!!!!!!! -->
       <button type="submit" name="read" value="">Read</button>
-      <button type="submit" name="update" value="">Update</button>
-      <button type="submit" name="delete" value="">Delate</button>
-      </form>
+      <a href="update.php?id=<?=$Article['ID']?>"><button type="submit" name="update" value="">Update</button></a>
+      <a href="delete.php?id=<?=$Article['ID']?>"><button type="submit" name="delete" value="">Delate</button></a>
+  <!-- </form> -->
       </td>
   </tr>
   </tbody>
