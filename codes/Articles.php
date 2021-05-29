@@ -23,25 +23,31 @@ class article extends DB{
         $resul->bindparam(2,$title);
         $resul->bindparam(3,$date);
         $resul->bindparam(4,$script);
-        $resul->execute();
+        if($resul->execute()){
+          return true;
+        }else{
+          return false;
+        }
+
 
 }
-  public function getOneAticle($getID){
+  public function getOneArticle($getID){
     $sql=$this->conn->prepare("SELECT * FROM articles WHERE ID = ? ");
     $sql->bindparam(1,$getID);
     $sql->execute();
-    $result =$sql->fetch();
+    $result =$sql->fetch(PDO::FETCH_ASSOC);
         return $result;
   }
 
 
-  public function updateArticle($img, $title, $date, $script){
+  public function updateArticle($img, $title, $date, $script, $ID){
     $resul = $this->conn->prepare('UPDATE articles SET `image`= ?,`title`= ?,`datePub`= ?,`description`= ? WHERE ID = ?');
     $resul->bindparam(1,$img);
     $resul->bindparam(2,$title);
     $resul->bindparam(3,$date);
     $resul->bindparam(4,$script);
-    $resul->execute();
+    $resul->bindparam(5,$ID);
+    return $resul->execute();
   }
 
 }
