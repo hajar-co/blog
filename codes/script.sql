@@ -2,7 +2,7 @@
     use blog;
     Create TABLE Articles(
     ID INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    image varchar(30),
+    image text,
     title varchar(120),
     author varchar(11),
     datePub date,

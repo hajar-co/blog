@@ -35,8 +35,7 @@ $Articles= $getAritcles->getArticle()?>
   <tr>
   <td> <?=$Article['ID']; ?></td>
   <td><?=$Article['title']; ?></td>
-  <!-- <td><img src="<?=$Article['image'];?>"></td> -->
-  <td><?=$Article['image'];?></td>
+  <td><img width="40" src="<?=$Article['image'];?>"></td>
   <td><?=$Article['datePub']; ?></td>
   <td>
   

@@ -29,15 +29,14 @@ if(isset($_POST['insert'])){
             $imgNewName = uniqid("", True).".".$imgActualExt;
             $imgDestin = '../images/'.$imgNewName;
             move_uploaded_file($imgTmp, $imgDestin);
-            
+            $insertArt = new article();
+            if($insertArt->insertArticle($imgDestin, $title, $date, $script)){
+                header('location: dashboard.php');
+            }
         }else{ echo "sorry, this image can't be uploaded ";}
 
     }else{
         echo "sorry, this image can't be uploaded ";
-    }
-    $insertArt = new article();
-    if($insertArt->insertArticle($imgDestin, $title, $date, $script)){
-        header('location:dashboard.php');
     }
 
 }
