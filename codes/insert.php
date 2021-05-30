@@ -47,8 +47,6 @@ if(isset($_POST['insert'])){
     <input type="date" name="date" id="date">
     <label for="img">Choose an image:</label>
     <input type="file" name="img" id="img" accept="image/*" >
-    <!-- <input type="image" src="$imgTmp"> -->
-    <!-- <img src="$imgTmp" width="500" height="600"> -->
     <button type="submit" name="insert" class="btn btn-success">Insert</button>
 </form>
 <a href="dashboard.php" id="cancelBtn"><button type="submit" class="btn btn-primary" >Cancel</button></a>

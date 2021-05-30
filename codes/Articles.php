@@ -47,7 +47,11 @@ class article extends DB{
     $resul->bindparam(3,$date);
     $resul->bindparam(4,$script);
     $resul->bindparam(5,$ID);
-    return $resul->execute();
+    if($resul->execute()){
+      return true;
+  }else{
+      return false;
+  }
   }
 
 }

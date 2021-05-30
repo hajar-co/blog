@@ -6,8 +6,6 @@ $get1Article = new article();
 $get1 = $get1Article->getOneArticle($_GET['id']);
 
 if(isset($_POST['Edit']) ){
-
-    if(!empty($imgName)){
         $title = $_POST['title'];
         $script = $_POST['script'];
         $date = $_POST['date'];
@@ -17,7 +15,6 @@ if(isset($_POST['Edit']) ){
             $imgName = $img['name'];
             $imgTmp = $img['tmp_name'];
             $imgError = $img['error'];
-            $imgType = $img['type'];
 
     $imgExt = explode("." , $imgName);
     $imgActualExt = strtolower(end($imgExt));
@@ -31,15 +28,7 @@ if(isset($_POST['Edit']) ){
         $updateArticle = new article();
         if($updateArticle->updateArticle($imgDestin, $title, $date, $script, $ID)){
             header('location: dashboard.php');
-           
-            echo"hi";
-        }
-    }else{ echo "sorry, this image can't be uploaded ";}
-
-    }else{
-        echo "sorry, this image can't be uploaded ";
-    }    
-}};
+        }}}};
 ?>
 <body>
     <div class="container">
@@ -55,9 +44,9 @@ if(isset($_POST['Edit']) ){
     <!-- <input value='<?=$get1['image']; ?>' type="file" name="img" id="img" accept="image/*" > -->
     <!-- <input type="image" src="$imgTmp"> -->
    <img src="<?=$get1['image']; ?>" width="50" height="40">
-    <input type="file" name="img" id="img" accept="image/*" >
+    <input value='<?=$get1['image']; ?>' type="file" name="img" id="img" accept="image/*" required>
     <input type="hidden" name="id" value='<?=$get1['ID'];?>'>
-    <button type="submit" name="Edit" class="btn btn-success">Edit </button>
+    <button type="submit" name="Edit" class="btn btn-success">Edit</button>
 </form>
 <a href="dashboard.php" id="cancelBtn"><button type="submit" class="btn btn-primary" >Cancel</button></a>
 </div>
