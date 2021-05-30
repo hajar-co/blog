@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My blog</title>
-</head>
-<body>
+
 <?php
+require "../components/header.php";
 require_once ('Articles.php');
+
 if(isset($_POST['insert'])){
     $title = $_POST['title'];
     $script = $_POST['script'];
@@ -41,7 +35,10 @@ if(isset($_POST['insert'])){
 
 }
 ?>
-<form action="insert.php" method="post" enctype="multipart/form-data">
+<body>
+    <div class="container">
+        <h3>Insert an article</h3>
+<form class="flex-container" action="insert.php" method="post" enctype="multipart/form-data">
     <label for="">Enter the title:</label>
     <input type="text" name="title" id="" required>
     <label for="script">Enter the article:</label>
@@ -52,10 +49,9 @@ if(isset($_POST['insert'])){
     <input type="file" name="img" id="img" accept="image/*" >
     <!-- <input type="image" src="$imgTmp"> -->
     <!-- <img src="$imgTmp" width="500" height="600"> -->
-    <button type="submit" name="insert">Insert</button>
-    
+    <button type="submit" name="insert" class="btn btn-success">Insert</button>
 </form>
-
- <hr>
+<a href="dashboard.php" id="cancelBtn"><button type="submit" class="btn btn-primary" >Cancel</button></a>
+ </div>
 </body>
 </html>

@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My blog</title>
-</head>
-<body>
 <?php
 require_once ('Articles.php');
-// if(isset($_POST['Edit'])){
-//     $title = $_POST['title'];
-//     $script = $_POST['script'];
-//     $date = $_POST['date'];
-//     $img = $_FILES['img'];
-        
-//         $imgName= $img['name'];
-//         $imgTmp = $img['tmp_name'];
-//         $imgError = $img['error'];
-//         $imgType = $img['type'];
- 
-//         $imgExt = explode("." , $imgName);
-//         $imgActualExt = strtolower(end($imgExt));
-    
-//     $allowedExt = array('jpg', 'jpeg', 'png', 'ai', 'tif');
-//     if(in_array($imgActualExt, $allowedExt)){
-//         if($imgError === 0){
-//             $imgNewName = uniqid("", True).".".$imgActualExt;
-//             $imgDestin = '../images/'.$imgNewName;
-//             move_uploaded_file($imgTmp, $imgDestin);
-            
-//         }else{ echo "sorry, this image can't be uploaded ";}
-
-//     }else{
-//         echo "sorry, this image can't be uploaded ";
-//     }
-//     $editArt = new article();
-//     if($edittArt->updateArticle($imgDestin, $title, $date, $script)){
-//         header('location:dashboard.php');
-//     }
-
-// }
+require "../components/header.php";
 
 $get1Article = new article();
 $get1 = $get1Article->getOneArticle($_GET['id']);
@@ -51,7 +11,7 @@ if(isset($_POST['Edit']) ){
         $title = $_POST['title'];
         $script = $_POST['script'];
         $date = $_POST['date'];
-        $ID = $_GET['id'];
+        $ID = $_POST['id'];
         $img = $_FILES['img'];
         
             $imgName = $img['name'];
@@ -81,10 +41,12 @@ if(isset($_POST['Edit']) ){
     }    
 }};
 ?>
-<h2>Update the Article</h2>
-<form action="update.php?id=<?=$get1['ID']?>" method="post" enctype="multipart/form-data">
+<body>
+    <div class="container">
+<h3>Update the Article</h3>
+<form action="update.php?id=<?=$get1['ID']?>" method="post" class="flex-container" enctype="multipart/form-data">
     <label for="">Edit the title:</label>
-    <input value='<?=$get1['title']; ?>' type="text" name="title" id="" required>
+    <input value='<?=$get1['title']; ?>' type="text" name="title" id="">
     <label for="script">Edit the article:</label>
     <textarea name="script" id="script" ><?=$get1['description']; ?></textarea>
     <label for="date">Edit the date : </label>
@@ -92,13 +54,12 @@ if(isset($_POST['Edit']) ){
     <label for="img">Choose an image:</label>
     <!-- <input value='<?=$get1['image']; ?>' type="file" name="img" id="img" accept="image/*" > -->
     <!-- <input type="image" src="$imgTmp"> -->
-    <!-- <img src="$imgTmp" width="500" height="600"> -->
+   <img src="<?=$get1['image']; ?>" width="50" height="40">
     <input type="file" name="img" id="img" accept="image/*" >
-    <!-- <input name="id" value='<?=$get1['ID'];?>'> -->
-    <button type="submit" name="Edit">Edit </button>
-    
+    <input type="hidden" name="id" value='<?=$get1['ID'];?>'>
+    <button type="submit" name="Edit" class="btn btn-success">Edit </button>
 </form>
-
- <hr>
+<a href="dashboard.php" id="cancelBtn"><button type="submit" class="btn btn-primary" >Cancel</button></a>
+</div>
 </body>
 </html>
