@@ -1,60 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my blog</title>
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
-<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<link rel="stylesheet" href="style.css">
-</head>
-<!-- ---- Include the above in your HEAD tag --------
-
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    Tabs Titles
-
-    Icon
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-    </div>
-
-    Login Form
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-
-    Remind Passowrd
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
-
-  </div>
-</div> -->
-<body>
-    <h2>LOGIN</h2>
-    
-    <?php 
-    require "blogger.php";
-    // require "db.php";
+<?php
+require "../components/header.php";
+require "blogger.php";
+   
     $login = new blogger();
     if(isset($_POST['submit'])){
-        if($login->authUser($_POST['email'],$_POST['pass'])) {
+        if($login->authUser($_POST['Email'],$_POST['password'])) {
           header('location:dashboard.php');} else{echo"Sorry email or password is incorrect";} }
     ?>
-   
 
-    <form action="login.php" method="POST">
-        <label>Email:</label>
-        <input type="email" placeholder="Enter your email" name="email"></input>
-        <label>Password:</label>
-        <input type="password" placeholder="Enter your password" name="pass"></input>
-        <input type="submit" value="Log In" name="submit">
-    </form>
-    
-</body>
+
+  <body>
+  <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Email:</label><br>
+                                <input type="email" name="Email" id="Email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="#" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
 </html>
+ 

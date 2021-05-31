@@ -50,8 +50,14 @@ class article extends DB{
     if($resul->execute()){
       return true;
   }else{
-      return false;
+      return false;}
   }
+  public function deleteArticle($ID){
+    $resul=$this->conn->prepare('DELETE FROM articles WHERE ID = ?' );
+    $resul->bindparam(1,$ID);
+    if($resul->execute()){
+      return true;
+    }else{ return false;}
   }
 
 }

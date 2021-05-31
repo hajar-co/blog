@@ -9,23 +9,12 @@ html {
     height: 100vh;
   }
   
-   a {
+   .linkA {
     color: #F2F2F2;
     display:inline-block;
     text-decoration: none;
     font-weight: 600;
   } 
-   
-  /* h2 {
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    display:inline-block;
-    margin: 40px 8px 10px 8px; 
-    color: #cccccc;
-  } */
-  
   .dashboard{
     padding: 2%;
   }
@@ -34,7 +23,7 @@ html {
   }
 
 
- /* insert page */
+ /*************** insert page *********/
 .container{
   width:90%;
   margin: auto;
@@ -66,3 +55,69 @@ html {
    border: 1px solid #FAED26;
    border-radius: 4px;
  }
+ /*************readOneArticle ********/
+ .flex-read{
+  width:70%;
+  margin:auto;
+  padding: 2%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center; 
+ }
+ .containerImage{
+   width:50%;
+   margin: auto;
+   background-color: black;
+ }
+ #exitBtn{
+   float: right !important;
+   text-align: end;
+ }
+ #img{
+   width: 100%;
+ }
+ /***************index page *************/
+ header{
+   background-image: url("../../images/dev.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   object-fit: cover;
+   position: relative;
+ }
+ header::before {    
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.6);
+}
+.containerIndex{
+  width:100%;
+  height: 100%;
+}
+.logos{
+  position:relative;
+  width:70%;
+  margin: auto;
+height: 10%;
+
+  /* width: */
+}
+.ordre{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: flex-end;
+  /* align-items: ; */
+  position: relative;
+  width:80%;
+
+}
+ul{
+  text-decoration: none;
+  color: white
+  ;
+} 
