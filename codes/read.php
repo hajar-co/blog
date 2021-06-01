@@ -10,7 +10,7 @@ $read1 = $read1Article->getOneArticle($_GET['id']);
         <h3><?=$read1['title'];?></h3>
         <div><?=$read1['description']; ?></div>
         <div><?="published on : ". $read1['datePub']; ?></div>
-        <a href="dashboard.php" id="exitBtn"><button type="submit" class="btn btn-primary">Exit</button></a>
+        <a href="dashboard.php" class="exitBtn"><button type="submit" class="btn btn-primary">Exit</button></a>
     </div>
 </body>
 </html>

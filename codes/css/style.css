@@ -70,7 +70,7 @@ html {
    margin: auto;
    background-color: black;
  }
- #exitBtn{
+ .exitBtn{
    float: right !important;
    text-align: end;
  }

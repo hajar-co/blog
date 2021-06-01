@@ -5,6 +5,7 @@ require "Articles.php";
 <body>
 <div class="dashboard">
 <a class="linkA" href="insert.php" id="insertBtn"><button type="submit" class="btn btn-primary" >Insert an article +</button></a>
+<a class="linkA exitBtn" href="index.php"><button type="submit" class="btn btn-primary">Exit</button></a>
 <?php 
 $getAritcles = new article();
 $Articles= $getAritcles->getArticle()?>
