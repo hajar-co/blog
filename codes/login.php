@@ -1,13 +1,17 @@
 <?php
+session_start();
 require "../components/header.php";
 require "blogger.php";
    
     $login = new blogger();
     if(isset($_POST['submit'])){
-     
         if($login->authUser($_POST['Email'],$_POST['password'])) {
-          header('location:dashboard.php');} else{echo"Sorry email or password is incorrect";} 
-        }
+          $_SESSION['Access'] = true;
+          header('location:dashboard.php');
+        } else{
+            echo"Sorry email or password is incorrect";
+        } 
+    }
     ?>
   <body>
   <div id="login">

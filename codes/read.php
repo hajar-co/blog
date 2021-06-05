@@ -1,4 +1,5 @@
 <?php
+require './stop.php';
 require "../components/header.php";
 require "Articles.php";
 $read1Article = new article();

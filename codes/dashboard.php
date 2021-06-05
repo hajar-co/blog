@@ -1,11 +1,12 @@
 <?php
+require './stop.php';
 require "../components/header.php";
 require "Articles.php";
 ?>
 <body>
 <div class="dashboard">
 <a class="linkA" href="insert.php" id="insertBtn"><button type="submit" class="btn btn-primary" >Insert an article +</button></a>
-<a class="linkA exitBtn" href="index.php"><button type="submit" class="btn btn-primary">Exit</button></a>
+<a class="linkA exitBtn" href="logout.php"><button type="submit" class="btn btn-primary">Log out</button></a>
 <?php 
 $getAritcles = new article();
 $Articles= $getAritcles->getArticle()?>

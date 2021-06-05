@@ -1,8 +1,11 @@
 
 <?php
+require './stop.php';
 require "../components/header.php";
 require_once ('Articles.php');
-
+if(!isset($_SESSION["password"])){
+    // REDIRECTION
+}
 if(isset($_POST['insert'])){
     $title = $_POST['title'];
     $script = $_POST['script'];

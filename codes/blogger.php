@@ -11,8 +11,8 @@ class blogger extends DB{
         $resul=$stm->execute();
         $resul=$stm->fetch(PDO::FETCH_ASSOC);
         if ($resul) return true;
+        return false;
 
     }
 }
-
     ?>

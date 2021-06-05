@@ -1,4 +1,5 @@
 <?php
+require './stop.php';
 require_once ('Articles.php');
 require "../components/header.php";
 
