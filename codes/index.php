@@ -78,7 +78,7 @@ $read1 = $read1Article->getArticle();
     <footer>
         <div class="footerUp">
             <div class="logos">
-                <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.32 35.6">
+                <svg id="Calque_1" data-name="Calque 1" xmlns="./" viewBox="0 0 144.32 35.6">
                     <defs>
                         <style>
                             .cls-1 {
